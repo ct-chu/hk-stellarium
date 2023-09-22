@@ -87,7 +87,7 @@ StelPluginInfo TextUserInterfaceStelPluginInterface::getPluginInfo() const
 	info.displayedName = N_("Text User Interface");
 	info.authors = "Matthew Gates";
 	info.contact = STELLARIUM_DEV_URL;
-	info.description = N_("Plugin implementation of 0.9.x series Text User Interface (TUI), used in planetarium systems");
+	info.description = N_("Plugin implementation of 0.9.x series Text User Interface (TUI), used in planetarium systems. Modded by CT Chu (HKNEAC)");
 	info.version = TUI_PLUGIN_VERSION;
 	info.license = TUI_PLUGIN_LICENSE;
 	return info;
@@ -674,8 +674,7 @@ void TextUserInterface::draw(StelCore* core)
 	if (tuiObjInfo) 
 	{
 		QString objInfo = ""; 
-		StelObject::InfoStringGroup tuiInfo(StelObject::Name|StelObject::CatalogNumber
-				|StelObject::Distance|StelObject::PlainText);
+		StelObject::InfoStringGroup tuiInfo(StelObject::Name|StelObject::CatalogNumber);
 		int text_x = x + xVc*4/3, text_y = y + pixOffset; 
 
 		QList<StelObjectP> selectedObj = GETSTELMODULE(StelObjectMgr)->getSelectedObject();
@@ -709,7 +708,7 @@ void TextUserInterface::handleKeys(QKeyEvent* event)
 		return;
 	}
 
-	if (event->type()==QEvent::KeyPress && (event->modifiers() & Qt::AltModifier) &&  event->key()==Qt::Key_T)
+	if (event->type()==QEvent::KeyPress  &&  event->key()==Qt::Key_T)
 	{
 		tuiActive = ! tuiActive;
 		dummyDialog.close();
