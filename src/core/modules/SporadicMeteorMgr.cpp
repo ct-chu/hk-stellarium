@@ -54,6 +54,8 @@ void SporadicMeteorMgr::init()
 	QSettings* conf = StelApp::getInstance().getSettings();
 	setZHR(conf->value("astro/meteor_zhr", 10).toInt());
 	setFlagForcedMeteorsActivity(conf->value("astro/flag_forced_meteor_activity", false).toBool());
+
+	addAction("actionToggleZHR", N_("Toggle Sporadic ZHR"), "toggleZHR()", "X");
 }
 
 double SporadicMeteorMgr::getCallOrder(StelModuleActionName actionName) const
@@ -145,5 +147,34 @@ void SporadicMeteorMgr::setZHR(int zhr)
 	{
 		m_zhr = zhr;
 		emit zhrChanged(zhr);
+	}
+}
+
+void SporadicMeteorMgr::toggleZHR()
+{
+	if(m_zhr < 100)
+	{
+		m_zhr = 100;
+		emit zhrChanged(100);
+	}
+	if(m_zhr >= 100 && m_zhr < 1000)
+	{
+		m_zhr = 1000;
+		emit zhrChanged(1000);
+	}
+	if(m_zhr >= 1000 && m_zhr < 10000)
+	{
+		m_zhr = 10000;
+		emit zhrChanged(10000);
+	}
+	if(m_zhr >= 10000 && m_zhr < 100000)
+	{
+		m_zhr = 100000;
+		emit zhrChanged(100000);
+	}
+	if(m_zhr >= 100000)
+	{
+		m_zhr = 10;
+		emit zhrChanged(10);
 	}
 }
