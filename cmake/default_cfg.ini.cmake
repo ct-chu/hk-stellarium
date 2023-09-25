@@ -3,7 +3,7 @@ version                             = @STELLARIUM_PUBLIC_VERSION@
 invert_screenshots_colors           = false
 
 [plugins_load_at_startup]
-Oculars                             = true
+Oculars                             = false
 Satellites                          = true
 SolarSystemEditor                   = true
 Exoplanets                          = true
@@ -11,6 +11,8 @@ MeteorShowers                       = true
 MissingStars                        = true
 Novae                               = true
 FOV                                 = true
+TextUserInterface                   = true
+RemoteControl                       = true
 
 [video]
 fullscreen                          = true
@@ -26,8 +28,8 @@ viewport_effect                     = none
 #vsync                               = true
 
 [projection]
-type                                = ProjectionStereographic
-viewportMask                        = none
+type                                = ProjectionFisheye
+viewportMask                        = disk
 flip_horz                           = false
 flip_vert                           = false
 
@@ -53,8 +55,8 @@ flag_use_ext_framebuffer_object     = false
 
 [localization]
 sky_culture                         = modern
-sky_locale                          = system
-app_locale                          = system
+sky_locale                          = zh_TW
+app_locale                          = zh_HK
 time_display_format                 = system_default
 date_display_format                 = yyyymmdd
 
@@ -110,9 +112,9 @@ gui_font_size                       = 13
 #Name of custom font file for some languages, like Thai.
 #This file should be stored into data/ folder.
 flag_font_selection                 = true
-mouse_cursor_timeout                = 10
-flag_mouse_cursor_timeout           = false
-selected_object_info                = all
+mouse_cursor_timeout                = 5
+flag_mouse_cursor_timeout           = true
+selected_object_info                = none
 auto_hide_horizontal_toolbar        = true
 auto_hide_vertical_toolbar          = true
 flag_enable_kinetic_scrolling       = true
@@ -162,7 +164,7 @@ horizon_color                       = 0.2,0.6,0.2
 meridian_color                      = 0.2,0.6,0.2
 prime_vertical_color                = 0.2,0.5,0.2
 zenith_nadir_color                  = 0.2,0.6,0.2
-cardinal_color                      = 0.8,0.2,0.1
+cardinal_color                      = 0.8,0.8,0.8
 # A mix of equatorial (blueish) and ecliptical (reddish)...
 colures_color                       = 0.5,0.0,0.5
 oc_longitude_color                  = 0.6,0.2,0.4
@@ -195,14 +197,14 @@ script_console_function_color       = 0.0,1.0,0.0
 script_console_constant_color       = 1.0,0.5,0.5
 
 [tui]
-flag_show_gravity_ui                = false
-flag_show_tui_datetime              = false
-flag_show_tui_short_obj_info        = false
-tui_font_size                       = 15
+flag_show_gravity_ui                = true
+flag_show_tui_datetime              = true
+flag_show_tui_short_obj_info        = true
+tui_font_size                       = 13
 admin_shutdown_cmd                  = ""
 
 [navigation]
-auto_zoom_out_resets_direction      = false
+auto_zoom_out_resets_direction      = true
 preset_sky_time                     = 2451514.250011573
 startup_time_mode                   = Actual
 today_time                          = 22:00
@@ -210,12 +212,12 @@ flag_manual_zoom                    = false
 flag_enable_zoom_keys               = true
 flag_enable_move_keys               = true
 flag_enable_mouse_navigation        = true
-init_fov                            = 60
-init_view_pos                       = 1,1e-05,0.2
+init_fov                            = 180
+init_view_pos                       = -1,0,1
 auto_move_duration                  = 1.4
 mouse_zoom                          = 10
 move_speed                          = 0.0004
-zoom_speed                          = 0.00035
+zoom_speed                          = 0.00030
 viewing_mode                        = horizon
 
 [landscape]
@@ -239,7 +241,7 @@ flag_constellation_drawing          = false
 flag_constellation_name             = false
 flag_constellation_art              = false
 flag_constellation_boundaries       = false
-flag_constellation_isolate_selected = false
+flag_constellation_isolate_selected = true
 flag_azimuthal_grid                 = false
 flag_equatorial_grid                = false
 flag_equatorial_J2000_grid          = false
@@ -254,9 +256,9 @@ flag_ecliptic__J2000_line           = false
 flag_meridian_line                  = false
 flag_longitude_line                 = false
 flag_horizon_line                   = false
-flag_cardinal_points                = true
-flag_gravity_labels                 = false
-flag_moon_scaled                    = false
+flag_cardinal_points                = false
+flag_gravity_labels                 = true
+flag_moon_scaled                    = true
 moon_scale                          = 4
 flag_minorbodies_scaled             = false
 minorbodies_scale                   = 10
@@ -271,7 +273,7 @@ sky_brightness_label_threshold      = 250.0
 
 [astro]
 flag_stars                          = true
-flag_star_name                      = true
+flag_star_name                      = false
 flag_planets                        = true
 flag_planets_hints                  = false
 flag_planets_orbits                 = false
