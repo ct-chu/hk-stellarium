@@ -694,7 +694,7 @@ void TextUserInterface::draw(StelCore* core)
 
 		StelPainter painter(core->getProjection(StelCore::FrameJ2000));
 		painter.setFont(font);
-		painter.setColor(color[0],color[1],color[2]);
+		painter.setColor(color[0.],color[0.7],color[0.7]);
 		painter.drawText(text_x, text_y, objInfo, 0, 0, 0, !tuiGravityUi);
 	}
 }
