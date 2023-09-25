@@ -459,8 +459,8 @@ void StarMgr::init()
 	connect(&app->getSkyCultureMgr(), SIGNAL(currentSkyCultureChanged(QString)), this, SLOT(updateSkyCulture(const QString&)));
 
 	QString displayGroup = N_("Display Options");
-	addAction("actionShow_Stars", displayGroup, N_("Stars"), "flagStarsDisplayed", "S");
-	addAction("actionShow_Stars_Labels", displayGroup, N_("Stars labels"), "flagLabelsDisplayed", "Alt+S");
+	addAction("actionShow_Stars", displayGroup, N_("Stars"), "flagStarsDisplayed", "Alt+S");
+	addAction("actionShow_Stars_Labels", displayGroup, N_("Stars labels"), "flagLabelsDisplayed", "S");
 	// Details: https://github.com/Stellarium/stellarium/issues/174
 	addAction("actionShow_Stars_MagnitudeLimitIncrease", displayGroup, N_("Increase the magnitude limit for stars"), "increaseStarsMagnitudeLimit()");
 	addAction("actionShow_Stars_MagnitudeLimitReduce", displayGroup, N_("Reduce the magnitude limit for stars"), "reduceStarsMagnitudeLimit()");

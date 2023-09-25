@@ -197,7 +197,7 @@ void StelMovementMgr::init()
 	addAction("actionZoom_In_Auto", movementGroup, N_("Zoom in on selected object"), "autoZoomIn()", "/");
 	addAction("actionZoom_Out_Auto", movementGroup, N_("Zoom out"), "autoZoomOut()", "\\");
 	// AW: Same behaviour has action "actionGoto_Selected_Object" by the fact (Is it for backward compatibility?)
-	addAction("actionSet_Tracking", movementGroup, N_("Track object"), "tracking", "T");
+	addAction("actionSet_Tracking", movementGroup, N_("Track object"), "tracking", "Alt+T");
 	// Implementation of quick turning to different directions (examples: CdC, HNSKY)
 	addAction("actionLook_Towards_East", movementGroup, N_("Look towards East"), "lookEast()", "Shift+E");
 	addAction("actionLook_Towards_West", movementGroup, N_("Look towards West"), "lookWest()", "Shift+W");

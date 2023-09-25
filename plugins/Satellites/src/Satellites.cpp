@@ -162,7 +162,7 @@ void Satellites::init()
 
 		// key bindings and other actions		
 		QString satGroup = N_("Satellites");
-		addAction("actionShow_Satellite_Hints", satGroup, N_("Artificial satellites"), "flagHintsVisible", "Ctrl+Z");
+		addAction("actionShow_Satellite_Hints", satGroup, N_("Artificial satellites"), "flagHintsVisible", "N");
 		addAction("actionShow_Satellite_Labels", satGroup, N_("Satellite labels"), "flagLabelsVisible", "Alt+Shift+Z");
 		addAction("actionShow_Satellite_ConfigDialog_Global", satGroup, N_("Show settings dialog"), configDialog, "visible", "Alt+Z");
 

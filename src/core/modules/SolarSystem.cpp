@@ -305,8 +305,8 @@ void SolarSystem::init()
 	connect(core, SIGNAL(dateChangedForTrails()), this, SLOT(recreateTrails()));
 
 	QString displayGroup = N_("Display Options");
-	addAction("actionShow_Planets", displayGroup, N_("Planets"), "planetsDisplayed", "P");
-	addAction("actionShow_Planets_Labels", displayGroup, N_("Planet labels"), "labelsDisplayed", "Alt+P");
+	addAction("actionShow_Planets", displayGroup, N_("Planets"), "planetsDisplayed", "Alt+P");
+	addAction("actionShow_Planets_Labels", displayGroup, N_("Planet labels"), "labelsDisplayed", "P");
 	addAction("actionShow_Planets_Orbits", displayGroup, N_("Planet orbits"), "flagOrbits", "O");
 	addAction("actionShow_Planets_Trails", displayGroup, N_("Planet trails"), "trailsDisplayed", "Shift+T");
 	addAction("actionShow_Planets_Trails_Reset", displayGroup, N_("Planet trails reset"), "recreateTrails()"); // No hotkey predefined.
