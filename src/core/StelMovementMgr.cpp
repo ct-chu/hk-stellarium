@@ -1323,7 +1323,7 @@ void StelMovementMgr::autoZoomIn(float moveDuration, bool allowManualZoom)
 // Unzoom and go to the init position
 void StelMovementMgr::autoZoomOut(float moveDuration, bool full)
 {
-	moveDuration /= movementsSpeedFactor;
+	moveDuration /= movementsSpeedFactor *3;
 
 	if (objectMgr->getWasSelected() && !full)
 	{
@@ -1348,6 +1348,8 @@ void StelMovementMgr::autoZoomOut(float moveDuration, bool full)
 	}
 
 	zoomTo(initFov, moveDuration);
+	//reset mount mode to AltAz when zooming out to init fov
+	setMountMode(StelMovementMgr::MountAltAzimuthal)
 	if (flagAutoZoomOutResetsDirection)
 	{
 		moveToJ2000(core->altAzToJ2000(getInitViewingDirection(), StelCore::RefractionOff), mountFrameToJ2000(initViewUp), moveDuration, ZoomOut);
@@ -1370,6 +1372,8 @@ void StelMovementMgr::setFlagTracking(bool b)
 	else
 	{
 		moveToObject(objectMgr->getSelectedObject()[0], getAutoMoveDuration());
+		//set mount mode to equatorial when centering obj
+		setMountMode(StelMovementMgr::MountEquinoxEquatorial)
 		if(b!=flagTracking)
 		{
 			flagTracking=true;
