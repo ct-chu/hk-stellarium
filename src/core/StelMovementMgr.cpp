@@ -1349,7 +1349,7 @@ void StelMovementMgr::autoZoomOut(float moveDuration, bool full)
 
 	zoomTo(initFov, moveDuration);
 	//reset mount mode to AltAz when zooming out to init fov
-	setMountMode(StelMovementMgr::MountAltAzimuthal)
+	setMountMode(StelMovementMgr::MountAltAzimuthal);
 	if (flagAutoZoomOutResetsDirection)
 	{
 		moveToJ2000(core->altAzToJ2000(getInitViewingDirection(), StelCore::RefractionOff), mountFrameToJ2000(initViewUp), moveDuration, ZoomOut);
@@ -1373,7 +1373,7 @@ void StelMovementMgr::setFlagTracking(bool b)
 	{
 		moveToObject(objectMgr->getSelectedObject()[0], getAutoMoveDuration());
 		//set mount mode to equatorial when centering obj
-		setMountMode(StelMovementMgr::MountEquinoxEquatorial)
+		setMountMode(StelMovementMgr::MountEquinoxEquatorial);
 		if(b!=flagTracking)
 		{
 			flagTracking=true;
