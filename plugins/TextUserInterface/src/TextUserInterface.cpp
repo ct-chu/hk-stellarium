@@ -100,9 +100,9 @@ StelPluginInfo TextUserInterfaceStelPluginInterface::getPluginInfo() const
 TextUserInterface::TextUserInterface()
 	: dummyDialog(this)
 	, tuiActive(false)
-	, tuiDateTime(false)
-	, tuiObjInfo(false)
-	, tuiGravityUi(false)
+	, tuiDateTime(true)
+	, tuiObjInfo(true)
+	, tuiGravityUi(true)
 	, currentNode(Q_NULLPTR)
 {
 	setObjectName("TextUserInterface");	
@@ -585,10 +585,10 @@ void TextUserInterface::loadConfiguration(void)
 	QSettings* conf = StelApp::getInstance().getSettings();
 	Q_ASSERT(conf);
 
-	font.setPixelSize(conf->value("tui/tui_font_size", 15).toInt());
-	tuiDateTime = conf->value("tui/flag_show_tui_datetime", false).toBool();
-	tuiObjInfo = conf->value("tui/flag_show_tui_short_obj_info", false).toBool();
-	tuiGravityUi = conf->value("tui/flag_show_gravity_ui", false).toBool();
+	font.setPixelSize(conf->value("tui/tui_font_size", 13).toInt());
+	tuiDateTime = conf->value("tui/flag_show_tui_datetime", true).toBool();
+	tuiObjInfo = conf->value("tui/flag_show_tui_short_obj_info", true).toBool();
+	tuiGravityUi = conf->value("tui/flag_show_gravity_ui", true).toBool();
 	color = Vec3f(conf->value("tui/tui_font_color", "0.3,1,0.3").toString());
 }
 
@@ -674,7 +674,8 @@ void TextUserInterface::draw(StelCore* core)
 	if (tuiObjInfo) 
 	{
 		QString objInfo = ""; 
-		StelObject::InfoStringGroup tuiInfo(StelObject::Name|StelObject::CatalogNumber);
+		StelObject::InfoStringGroup tuiInfo(StelObject::Name|StelObject::CatalogNumber
+				|StelObject::Distance|StelObject::PlainText);
 		int text_x = x + xVc*4/3, text_y = y + pixOffset; 
 
 		QList<StelObjectP> selectedObj = GETSTELMODULE(StelObjectMgr)->getSelectedObject();
@@ -682,9 +683,10 @@ void TextUserInterface::draw(StelCore* core)
 			objInfo = "";	
 		} else {
 			objInfo = selectedObj[0]->getInfoString(core, tuiInfo);
-			objInfo.replace("\n"," ");
-			objInfo.replace("Distance:"," ");
-			objInfo.replace("Light Years","ly");
+			objInfo = objInfo.mid(0, objInfo.indexOf("<"));
+			// objInfo.replace("\n"," ");
+			// objInfo.replace("Distance:"," ");
+			// objInfo.replace("Light Years","ly");
 		}
 
 		if (fovMaskDisk) {
@@ -694,7 +696,7 @@ void TextUserInterface::draw(StelCore* core)
 
 		StelPainter painter(core->getProjection(StelCore::FrameJ2000));
 		painter.setFont(font);
-		painter.setColor(color[0.],color[0.7],color[0.7]);
+		painter.setColor(color[0.5],color[0.9],color[0.5]);
 		painter.drawText(text_x, text_y, objInfo, 0, 0, 0, !tuiGravityUi);
 	}
 }
