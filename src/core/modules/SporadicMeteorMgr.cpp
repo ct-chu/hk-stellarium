@@ -21,6 +21,7 @@
 #include "SolarSystem.hpp"
 #include "SporadicMeteorMgr.hpp"
 #include "StelApp.hpp"
+#include "StelActionMgr.hpp"
 #include "StelCore.hpp"
 #include "StelFileMgr.hpp"
 #include "StelModuleMgr.hpp"
@@ -55,7 +56,8 @@ void SporadicMeteorMgr::init()
 	setZHR(conf->value("astro/meteor_zhr", 10).toInt());
 	setFlagForcedMeteorsActivity(conf->value("astro/flag_forced_meteor_activity", false).toBool());
 
-	addAction("actionToggleZHR", N_("Toggle Sporadic ZHR"), "toggleZHR()", "X");
+	QString displayGroup = N_("Display Options");
+	addAction("actionToggleZHR", displayGroup, N_("Toggle Sporadic ZHR"), "toggleZHR()", "X");
 }
 
 double SporadicMeteorMgr::getCallOrder(StelModuleActionName actionName) const
@@ -157,22 +159,22 @@ void SporadicMeteorMgr::toggleZHR()
 		m_zhr = 100;
 		emit zhrChanged(100);
 	}
-	if(m_zhr >= 100 && m_zhr < 1000)
+	else if(m_zhr >= 100 && m_zhr < 1000)
 	{
 		m_zhr = 1000;
 		emit zhrChanged(1000);
 	}
-	if(m_zhr >= 1000 && m_zhr < 10000)
+	else if(m_zhr >= 1000 && m_zhr < 10000)
 	{
 		m_zhr = 10000;
 		emit zhrChanged(10000);
 	}
-	if(m_zhr >= 10000 && m_zhr < 100000)
+	else if(m_zhr >= 10000 && m_zhr < 100000)
 	{
 		m_zhr = 100000;
 		emit zhrChanged(100000);
 	}
-	if(m_zhr >= 100000)
+	else if(m_zhr >= 100000)
 	{
 		m_zhr = 10;
 		emit zhrChanged(10);

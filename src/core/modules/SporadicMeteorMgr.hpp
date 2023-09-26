@@ -29,7 +29,7 @@
 class SporadicMeteorMgr : public StelModule
 {
 	Q_OBJECT
-	Q_PROPERTY(int zhr READ getZHR WRITE setZHR NOTIFY zhrChanged)
+	Q_PROPERTY(int zhr READ getZHR WRITE setZHR NOTIFY toggleZHR NOTIFY zhrChanged)
 public:
 	//! Constructor
 	//! @param zhr Zenith Hourly Rate
@@ -49,6 +49,8 @@ public slots:
 	int getZHR() const { return m_zhr; }
 	//! Set the zenith hourly rate.
 	void setZHR(int zhr);
+	//! toggle between predetermined the zenith hourly rate.
+	void toggleZHR();
 
 	//! Set flag used to turn on and off meteor rendering.
 	void setFlagShow(bool b) { m_flagShow = b; }

@@ -57,6 +57,7 @@ class StelGui : public QObject, public StelGuiBase
 	Q_PROPERTY(bool autoHideHorizontalButtonBar READ getAutoHideHorizontalButtonBar WRITE setAutoHideHorizontalButtonBar NOTIFY autoHideHorizontalButtonBarChanged)
 	Q_PROPERTY(bool autoHideVerticalButtonBar READ getAutoHideVerticalButtonBar WRITE setAutoHideVerticalButtonBar NOTIFY autoHideVerticalButtonBarChanged)
 	Q_PROPERTY(bool flagShowQuitButton READ getFlagShowQuitButton WRITE setFlagShowQuitButton NOTIFY  flagShowQuitButtonChanged)
+	Q_PROPERTY(bool flagShowZHRButton READ getFlagShowZHRButton WRITE setFlagShowZHRButton NOTIFY  flagShowZHRButtonChanged)
 	Q_PROPERTY(bool flagShowFlipButtons READ getFlagShowFlipButtons WRITE setFlagShowFlipButtons NOTIFY flagShowFlipButtonsChanged)
 	Q_PROPERTY(bool flagShowNebulaBackgroundButton READ getFlagShowNebulaBackgroundButton WRITE setFlagShowNebulaBackgroundButton NOTIFY flagShowNebulaBackgroundButtonChanged)
 	Q_PROPERTY(bool flagShowDSSButton READ getFlagShowDSSButton WRITE setFlagShowDSSButton NOTIFY  flagShowDSSButtonChanged)
@@ -139,6 +140,9 @@ public slots:
 
 	//! Define whether the button for exit should be visible
 	void setFlagShowQuitButton(bool b);
+
+	//! Define whether the button for ZHR should be visible
+	void setFlagShowZHRButton(bool b);
 
 	//! Define whether the buttons toggling image flip should be visible
 	void setFlagShowFlipButtons(bool b);
@@ -234,6 +238,8 @@ public slots:
 	bool getFlagEnableFocusOnDaySpinner() const { return flagEnableFocusOnDaySpinner; }
 	//! Get whether the exit button is visible
 	bool getFlagShowQuitButton() const;
+	//! Get whether the ZHR button is visible
+	bool getFlagShowZHRButton() const;
 	//! Get whether the buttons toggling image flip are visible
 	bool getFlagShowFlipButtons() const;
 	//! Get whether the button toggling nebulae background is visible
@@ -279,6 +285,7 @@ signals:
 	void flagUseKineticScrollingChanged(bool b);
 	void flagEnableFocusOnDaySpinnerChanged(bool b);
 	void flagShowQuitButtonChanged(bool b);
+	void flagShowZHRButtonChanged(bool b);
 	void flagShowFlipButtonsChanged(bool b);
 	void flagShowNebulaBackgroundButtonChanged(bool b);
 	void flagShowDSSButtonChanged(bool b);
@@ -333,6 +340,9 @@ private:
 
 	bool flagShowQuitButton;
 	StelButton* buttonQuit;
+
+	bool flagShowZHRButton;
+	StelButton* btToggleZHR;
 
 	bool flagShowGotoSelectedObjectButton;
 	StelButton* buttonGotoSelectedObject;

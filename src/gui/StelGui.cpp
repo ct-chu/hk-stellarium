@@ -77,7 +77,9 @@ StelGui::StelGui()
 	, buttonTimeCurrent(nullptr)
 	, buttonTimeForward(nullptr)
 	, flagShowQuitButton(true)
+	, flagShowZHRButton(true)
 	, buttonQuit(nullptr)
+	, btToggleZHR(nullptr)
 	, flagShowGotoSelectedObjectButton(true)
 	, buttonGotoSelectedObject(nullptr)
 	, locationDialog(nullptr)
@@ -353,6 +355,10 @@ void StelGui::init(QGraphicsWidget *atopLevelGraphicsWidget)
 	pxmapOn = QPixmap(":/graphicGui/btQuit.png");	
 	buttonQuit = new StelButton(nullptr, pxmapOn, pxmapOn, pxmapGlow32x32, "actionQuit_Global");
 	skyGui->bottomBar->addButton(buttonQuit, "080-quitGroup");
+	
+	pxmapOn = QPixmap(":/graphicGui/btToggleZHR.png");	
+	btToggleZHR = new StelButton(nullptr, pxmapOn, pxmapOn, pxmapGlow32x32, "actionToggleZHR");
+	skyGui->bottomBar->addButton(btToggleZHR, "040-nebulaeGroup");
 
 	// add the flip and other buttons if requested in the config
 	setFlagShowFlipButtons(conf->value("gui/flag_show_flip_buttons", false).toBool());
@@ -370,6 +376,7 @@ void StelGui::init(QGraphicsWidget *atopLevelGraphicsWidget)
 	setFlagShowAsterismLinesButton(conf->value("gui/flag_show_asterism_lines_button", false).toBool());
 	setFlagShowAsterismLabelsButton(conf->value("gui/flag_show_asterism_labels_button", false).toBool());
 	setFlagShowQuitButton(conf->value("gui/flag_show_quit_button", true).toBool());
+	setFlagShowZHRButton(conf->value("gui/flag_show_zhr_button", true).toBool());
 	setFlagShowCardinalButton(conf->value("gui/flag_show_cardinal_button", true).toBool());
 	setFlagShowCompassButton(conf->value("gui/flag_show_compass_button", false).toBool());
 
@@ -1176,6 +1183,31 @@ void StelGui::setFlagShowQuitButton(bool b)
 	}
 }
 
+void StelGui::setFlagShowZHRButton(bool b)
+{
+	if (b!=flagShowZHRButton)
+	{
+		if (b==true) {
+			if (btToggleZHR==nullptr)
+				{
+					// Create the ZHR button
+					QPixmap pxmapGlow32x32(":/graphicGui/miscGlow32x32.png");
+					QPixmap pxmapOn(":/graphicGui/btToggleZHR.png");
+					btToggleZHR = new StelButton(nullptr, pxmapOn, pxmapOn, pxmapGlow32x32, "actionToggleZHR");
+				}
+				getButtonBar()->addButton(btToggleZHR, "040-nebulaeGroup");
+			} else {
+			getButtonBar()->hideButton("actionToggleZHR");
+		flagShowZHRButton = b;
+		QSettings* conf = StelApp::getInstance().getSettings();
+		Q_ASSERT(conf);
+		conf->setValue("gui/flag_show_zhr_button", b);
+		conf->sync();
+		emit flagShowZHRButtonChanged(b);
+		}
+	}
+}
+
 void StelGui::setFlagShowCardinalButton(bool b)
 {
 	if (b!=flagShowCardinalButton)
@@ -1338,6 +1370,11 @@ void StelGui::setAutoHideVerticalButtonBar(bool b)
 bool StelGui::getFlagShowQuitButton() const
 {
 	return flagShowQuitButton;
+}
+
+bool StelGui::getFlagShowZHRButton() const
+{
+	return flagShowZHRButton;
 }
 
 bool StelGui::getFlagShowFlipButtons() const

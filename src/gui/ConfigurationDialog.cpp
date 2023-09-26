@@ -312,6 +312,7 @@ void ConfigurationDialog::createDialogContent()
 	connectBoolProperty(ui->autoZoomResetsDirectionCheckbox, "StelMovementMgr.flagAutoZoomOutResetsDirection");
 
 	connectBoolProperty(ui->showQuitButtonCheckBox,				"StelGui.flagShowQuitButton");
+	connectBoolProperty(ui->showZHRButtonCheckBox,				"StelGui.flagShowZHRButton");
 	connectBoolProperty(ui->showFlipButtonsCheckbox,				"StelGui.flagShowFlipButtons");
 	connectBoolProperty(ui->showNebulaBgButtonCheckbox,			"StelGui.flagShowNebulaBackgroundButton");
 	
@@ -1129,6 +1130,7 @@ void ConfigurationDialog::saveAllSettings()
 	conf->setValue("gui/auto_hide_horizontal_toolbar",		propMgr->getStelPropertyValue("StelGui.autoHideHorizontalButtonBar").toBool());
 	conf->setValue("gui/auto_hide_vertical_toolbar",			propMgr->getStelPropertyValue("StelGui.autoHideVerticalButtonBar").toBool());
 	conf->setValue("gui/flag_show_quit_button",				propMgr->getStelPropertyValue("StelGui.flagShowQuitButton").toBool());
+	conf->setValue("gui/flag_show_zhr_button",				propMgr->getStelPropertyValue("StelGui.flagShowZHRButton").toBool());
 	conf->setValue("gui/flag_show_nebulae_background_button",propMgr->getStelPropertyValue("StelGui.flagShowNebulaBackgroundButton").toBool());
 	conf->setValue("gui/flag_show_dss_button",				propMgr->getStelPropertyValue("StelGui.flagShowDSSButton").toBool());
 	conf->setValue("gui/flag_show_hips_button",				propMgr->getStelPropertyValue("StelGui.flagShowHiPSButton").toBool());
