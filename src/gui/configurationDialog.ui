@@ -1229,6 +1229,16 @@
                </property>
               </widget>
              </item>
+             <item row="7" column="0">
+              <widget class="QCheckBox" name="showZHRButtonCheckBox">
+               <property name="toolTip">
+                <string>Show button in addition to keyboard shortcut?</string>
+               </property>
+               <property name="text">
+                <string>ZHR button</string>
+               </property>
+              </widget>
+             </item>
              <item row="1" column="1">
               <widget class="QCheckBox" name="showCardinalButtonCheckBox">
                <property name="toolTip">
