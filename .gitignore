@@ -75,3 +75,4 @@ qrc_*.cpp
 .kdev4
 # Ignore Eclipse project files
 .project
+.vscode
