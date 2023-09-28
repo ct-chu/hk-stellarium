@@ -1328,7 +1328,7 @@ void StelMovementMgr::autoZoomIn(float moveDuration, bool allowManualZoom)
 // Unzoom and go to the init position
 void StelMovementMgr::autoZoomOut(float moveDuration, bool full)
 {
-	moveDuration /= movementsSpeedFactor *3;
+	moveDuration /= movementsSpeedFactor;
 
 	if (objectMgr->getWasSelected() && !full)
 	{
