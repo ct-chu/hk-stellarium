@@ -1379,7 +1379,7 @@ void StelMovementMgr::setFlagTracking(bool b)
 		const QList<StelObjectP> newSelected = GETSTELMODULE(StelObjectMgr)->getSelectedObject("Planet");
 		if (!newSelected.empty())
 			{
-		setMountMode(StelMovementMgr::MountEquinoxEquatorial);
+				setMountMode(StelMovementMgr::MountEquinoxEquatorial);
 			}
 		if(b!=flagTracking)
 		{
