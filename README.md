@@ -1,15 +1,15 @@
-# Stellarium
-[![GitHub release](https://img.shields.io/github/release/Stellarium/stellarium.svg)](https://github.com/Stellarium/stellarium/releases/latest)
-[![GitHub Release Date](https://img.shields.io/github/release-date/Stellarium/stellarium.svg)](https://github.com/Stellarium/stellarium/releases/latest)
-[![Github All Releases](https://img.shields.io/github/downloads/Stellarium/stellarium/total.svg)](https://github.com/Stellarium/stellarium/releases)
-[![Backers and sponsors](https://img.shields.io/opencollective/all/stellarium.svg?style=flat)](https://opencollective.com/stellarium)
-[![CI](https://github.com/Stellarium/stellarium/actions/workflows/ci.yml/badge.svg)](https://github.com/Stellarium/stellarium/actions/workflows/ci.yml)
-[![Build status](https://ci.appveyor.com/api/projects/status/sw8j9l8q95ejkalo?svg=true)](https://ci.appveyor.com/project/alex-w/stellarium)
-[![Coverage Status](https://coveralls.io/repos/github/Stellarium/stellarium/badge.svg)](https://coveralls.io/github/Stellarium/stellarium)
-[![CodeFactor](https://www.codefactor.io/repository/github/stellarium/stellarium/badge)](https://www.codefactor.io/repository/github/stellarium/stellarium)
-[![DOI:10.1558/jsa.17822](http://img.shields.io/badge/DOI-10.1558/jsa.17822-blue.svg)](https://doi.org/10.1558/jsa.17822)
-[![DOI:10.5281/zenodo.8105939](http://img.shields.io/badge/DOI-10.5281/zenodo.8105939-blue.svg)](https://doi.org/10.5281/zenodo.8105939)
-
+# Stellarium mod for planetarium  
+for Ho Koon Natural Education cum Astronomical Centre  
+  
+[![GitHub release](https://img.shields.io/github/release/Stellarium/stellarium.svg)]([https://github.com/ct-chu/hk-stellarium/releases/latest)
+[![GitHub Release Date](https://img.shields.io/github/release-date/Stellarium/stellarium.svg)](https://github.com/ct-chu/hk-stellarium/releases/latest)
+[![Github All Releases](https://img.shields.io/github/downloads/Stellarium/stellarium/total.svg)](https://github.com/ct-chu/hk-stellarium/releases)
+[![CI](https://github.com/Stellarium/stellarium/actions/workflows/ci.yml/badge.svg)](https://github.com/ct-chu/hk-stellarium/actions/workflows/ci.yml)
+  
+  
+Information below are copied from the original README file:  
+  
+---
 Stellarium is a free open source planetarium for your computer. It shows a realistic sky
 in 3D, just like what you see with the naked eye, binoculars or a telescope.
 
