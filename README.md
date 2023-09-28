@@ -1,12 +1,6 @@
 # Stellarium mod for planetarium  
 for Ho Koon Natural Education cum Astronomical Centre  
   
-[![GitHub release](https://img.shields.io/github/release/Stellarium/stellarium.svg)]([https://github.com/ct-chu/hk-stellarium/releases/latest)
-[![GitHub Release Date](https://img.shields.io/github/release-date/Stellarium/stellarium.svg)](https://github.com/ct-chu/hk-stellarium/releases/latest)
-[![Github All Releases](https://img.shields.io/github/downloads/Stellarium/stellarium/total.svg)](https://github.com/ct-chu/hk-stellarium/releases)
-[![CI](https://github.com/Stellarium/stellarium/actions/workflows/ci.yml/badge.svg)](https://github.com/ct-chu/hk-stellarium/actions/workflows/ci.yml)
-  
-  
 Information below are copied from the original README file:  
   
 ---
