@@ -1261,6 +1261,7 @@ void StelMovementMgr::updateVisionVector(double deltaTime)
 			}
 			else
 			{
+				resetInitViewPos();
 				// Vision vector locked to its position in the mountFrame
 				setViewDirectionJ2000(mountFrameToJ2000(viewDirectionMountFrame));
 				// After setting time, moveToAltAz broke the up vector without this:
