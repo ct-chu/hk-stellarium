@@ -812,8 +812,12 @@ void StelMovementMgr::zoomIn(bool s)
 
 void StelMovementMgr::zoomOut(bool s)
 {
-	if (flagEnableZoomKeys)
+	if (flagEnableZoomKeys){
 		deltaFov = (s!=0);
+		currentFov = getCurrentFov();
+		if (currentFov >= 180)
+		autoZoomOut();
+	}
 }
 
 void StelMovementMgr::lookEast(bool zero)
