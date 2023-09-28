@@ -1277,7 +1277,7 @@ void StelMovementMgr::deselection(void)
 {
 	// Deselect the selected object
 	StelApp::getInstance().getStelObjectMgr().unSelect();
-	setFlagLockEquPos(false);	
+	// setFlagLockEquPos(false);	
 	return;
 }
 
