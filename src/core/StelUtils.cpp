@@ -43,9 +43,9 @@ namespace StelUtils
 QString getApplicationName()
 {
 #if defined(GIT_REVISION)
-	return QString("Stellarium %1+").arg(StelUtils::getApplicationPublicVersion());
+	return QString("HK-Stellarium %1+").arg(StelUtils::getApplicationPublicVersion());
 #else
-	return QString("Stellarium %1").arg(StelUtils::getApplicationPublicVersion());
+	return QString("HK-Stellarium %1").arg(StelUtils::getApplicationPublicVersion());
 #endif
 }
 
