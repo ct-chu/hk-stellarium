@@ -1372,8 +1372,12 @@ void StelMovementMgr::setFlagTracking(bool b)
 	else
 	{
 		moveToObject(objectMgr->getSelectedObject()[0], getAutoMoveDuration());
-		//set mount mode to equatorial when centering obj
+		//set mount mode to equatorial when centering planets
+		const QList<StelObjectP> newSelected = GETSTELMODULE(StelObjectMgr)->getSelectedObject("Planet");
+		if (!newSelected.empty())
+			{
 		setMountMode(StelMovementMgr::MountEquinoxEquatorial);
+			}
 		if(b!=flagTracking)
 		{
 			flagTracking=true;
