@@ -182,10 +182,10 @@ int main(int argc, char **argv)
 	}
 #endif
 
-	QCoreApplication::setApplicationName("stellarium");
+	QCoreApplication::setApplicationName("hk-stellarium");
 	QCoreApplication::setApplicationVersion(StelUtils::getApplicationPublicVersion());
-	QCoreApplication::setOrganizationDomain("stellarium.org");
-	QCoreApplication::setOrganizationName("stellarium");
+	QCoreApplication::setOrganizationDomain("hokoon.edu.hk");
+	QCoreApplication::setOrganizationName("HKNEAC");
 
 	QCoreApplication::setAttribute(Qt::AA_CompressHighFrequencyEvents);
 	// Support high DPI pixmaps and fonts
@@ -270,7 +270,7 @@ int main(int argc, char **argv)
 
 	// OK we start the full program.
 	// Print the console splash and get on with loading the program
-	QString versionLine = QString("This is %1 (v%2) - %3").arg(StelUtils::getApplicationName(), StelUtils::getApplicationVersion(), STELLARIUM_URL);
+	QString versionLine = QString("This is HK-Stellarium v0.1.0 based on %1 (v%2) - %3").arg(StelUtils::getApplicationName(), StelUtils::getApplicationVersion(), STELLARIUM_URL);
 	QString copyrightLine = STELLARIUM_COPYRIGHT;
 	int maxLength = qMax(versionLine.size(), copyrightLine.size());
 	qDebug() << qPrintable(QString(" %1").arg(QString().fill('-', maxLength+2)));
