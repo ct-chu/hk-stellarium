@@ -76,3 +76,5 @@ qrc_*.cpp
 # Ignore Eclipse project files
 .project
 .vscode
+_deps
+CPM_modules
