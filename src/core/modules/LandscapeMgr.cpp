@@ -776,7 +776,7 @@ void LandscapeMgr::createAtmosphere()
 
 		const auto conf=StelApp::getInstance().getSettings();
 		setFlagAtmosphere(conf->value("landscape/flag_atmosphere", true).toBool());
-		setAtmosphereFadeDuration(conf->value("landscape/atmosphere_fade_duration",0.5).toFloat());
+		setAtmosphereFadeDuration(conf->value("landscape/atmosphere_fade_duration",1.5).toFloat());
 
 		const auto drawer = StelApp::getInstance().getCore()->getSkyDrawer();
 		setAtmosphereLightPollutionLuminance(drawer->getLightPollutionLuminance());
